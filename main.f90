@@ -7,20 +7,21 @@ program main
   integer, dimension(2), parameter :: L = [20,16]
   integer :: k, p(2,2)
   integer :: i, j, tile_sizex, tile_sizey
-  integer, allocatable :: s(:,:)[:], sglobal(:,:)[:] , indices(:,:)
+  integer, allocatable :: s(:,:)[:],s2(:,:)[:,:], sglobal(:,:)[:] , indices(:,:)
   integer :: i1(2), j1(2)
 
   
   !call random_init(.false.,.true.)
   !call random_number(x)
   !print*, this_image(), x
-  d = [5,1]
+  d = [4,1]
   tile_sizex = L(1)/d(1)
   tile_sizey = L(2)/d(2)
 
   print*, any(L/d /= 0)
   
   allocate(s(1:tile_sizex,1:tile_sizey)[*])
+  allocate(s2(1:tile_sizex,1:tile_sizey)[d(1),*])
   allocate(sglobal(L(1),L(2))[*])
   allocate(indices(2,2))
 
